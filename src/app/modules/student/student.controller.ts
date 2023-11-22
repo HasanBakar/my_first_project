@@ -13,7 +13,11 @@ const createStudent = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: 'Student is not successfuly created😴',
+      data: error,
+    });
   }
 };
 
@@ -26,7 +30,11 @@ const getAllStudents = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: 'All student can not retrieved successfully😴',
+      data: error,
+    });
   }
 };
 
@@ -40,7 +48,11 @@ const getSingleStudent = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: 'A student is not retrieved successfully😪',
+      data: error,
+    });
   }
 };
 
