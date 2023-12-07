@@ -5,6 +5,8 @@ import { TUser } from './user.interface';
 import { User } from './user.module';
 
 const createStudentIntoDB = async (password: string, studentData: TStudent) => {
+  // validation with zod
+
   // create a user object
   const userData: Partial<TUser> = {};
 
@@ -15,8 +17,8 @@ const createStudentIntoDB = async (password: string, studentData: TStudent) => {
   // set menually generated id
   userData.id = '2030100001';
   // create a user
-  const newUser = await User.create(userData);
 
+  const newUser = await User.create(userData);
   // create a student
   if (Object.keys(newUser).length) {
     studentData.id = newUser.id; // embedding id

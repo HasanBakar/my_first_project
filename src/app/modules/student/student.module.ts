@@ -12,7 +12,7 @@ const studentNameSchema = new Schema<TUserName>({
   firstName: {
     type: String,
     required: [true, 'First Name is required.'],
-    maxlength: [20, 'First name is maximun 20 characters'],
+    maxlength: [20, 'First name is maximum 20 characters'],
     trim: true,
     validate: {
       validator: function (value: string) {

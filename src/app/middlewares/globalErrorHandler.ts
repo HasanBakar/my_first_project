@@ -11,8 +11,8 @@ const globalErrorHandler = (
 ) => {
   return res.status(500).json({
     success: false,
-    message: 'Something want wrong😴',
-    data: err,
+    message: err.message || 'Something want wrong😴',
+    error: err,
   });
 };
 

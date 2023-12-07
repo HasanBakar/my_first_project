@@ -1,10 +1,12 @@
-import express, { Router } from 'express';
+import express from 'express';
 import { StudentControllers } from './student.controller';
 
-const router: Router = express.Router();
+const router = express.Router();
+
+router.get('/:semesterIdId', StudentControllers.getSingleStudent);
+
+router.delete('/:semesterIdId', StudentControllers.deleteStudent);
 
 router.get('/', StudentControllers.getAllStudents);
-
-router.get('/:studentId', StudentControllers.getSingleStudent);
 
 export const StudentRoutes = router;

@@ -9,6 +9,7 @@ const userSchema = new Schema<TUser>(
     id: {
       type: String,
       require: true,
+      unique: true,
     },
     password: {
       type: String,
@@ -39,7 +40,7 @@ const userSchema = new Schema<TUser>(
   },
 );
 
-// middlewire for password hashing before saving
+// middlewares for password hashing before saving
 userSchema.pre('save', async function (next) {
   const User = this;
   User.password = await bcrypt.hash(User.password, Number(config.salt));
